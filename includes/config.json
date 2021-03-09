@@ -1,0 +1,5 @@
+{
+  "debug": true,
+  "network-database": "db.db",
+  "external-domain": ""
+}

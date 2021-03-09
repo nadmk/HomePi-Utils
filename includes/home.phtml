@@ -1,0 +1,75 @@
+<div class="container">
+<div class="columns">
+<div class="column">
+
+<?php 
+/*
+	echo '<form id="exec" class=""  method="get" action="index.php"> ';
+	echo '<input class="input" name="cmd" type="text" placeholder="Text input">';
+	echo '<button type=submit class="button">Button</button>';
+	echo '</form>';
+	if(isset($_GET['cmd'])){
+		echo shell_exec($_GET['cmd']);
+	}
+	else {
+	}
+*/
+?>
+</div>
+<div class="column">
+<nav class="panel">
+  <p class="panel-heading">
+    Log Viewer
+  </p>
+  <div class="panel-block">
+
+  </div>
+  <a href="viewer.php?file=pihole.log" class="panel-block is-active">
+    <span class="panel-icon">
+      <i class="fas fa-book" aria-hidden="true"></i>
+    </span>
+    pihole.log
+  </a>
+  <a href="viewer.php?file=pihole-FTL.log" class="panel-block">
+    <span class="panel-icon">
+      <i class="fas fa-book" aria-hidden="true"></i>
+    </span>
+    pihole-FTL.log
+  </a>
+  <a href="viewer.php?file=log2ram.log"class="panel-block">
+    <span class="panel-icon">
+      <i class="fas fa-book" aria-hidden="true"></i>
+    </span>
+    log2ram.log
+  </a>
+  <a href="viewer.php?file=syslog" class="panel-block">
+    <span class="panel-icon">
+      <i class="fas fa-book" aria-hidden="true"></i>
+    </span>
+    syslog
+  </a>
+  <a href="viewer.php?file=messages" class="panel-block">
+    <span class="panel-icon">
+      <i class="fas fa-code-branch" aria-hidden="true"></i>
+    </span>
+    messages
+  </a>
+  <a href="viewer.php?file=lighttpd/access.log" class="panel-block">
+    <span class="panel-icon">
+      <i class="fas fa-code-branch" aria-hidden="true"></i>
+    </span>
+	lighttpd/access.log
+  </a>
+ <a href="viewer.php?file=apache2/access.log" class="panel-block">
+    <span class="panel-icon">
+      <i class="fas fa-code-branch" aria-hidden="true"></i>
+    </span>
+	apache2/access.log
+  </a>
+  <div class="panel-block">
+
+  </div>
+</nav>
+
+</div>
+</div>

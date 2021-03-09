@@ -1,0 +1,32 @@
+
+<div class="container">
+
+  <div class="notification is-primary">
+    VPN Profiles created through SSH are automatically added here.
+  </div>
+  <article class="panel is-link">
+  <p class="panel-heading">
+    VPN Profiles
+  </p>
+  <p class="panel-tabs">
+    <a class="is-active">WireGuard</a>
+  </p>
+<?php getFiles(); ?>
+</article>
+</div>
+<br>
+
+ <?php
+$vpn_dir = scandir('/home/pi/configs/');
+$vpn_files = array_diff($vpn_dir, array('.', '..'));
+
+
+function getFiles(){
+	foreach($vpn_files as $vpn_files_out) {
+		echo '<a href="'.$vpn_files_out.'" class="panel-block"><span class="icon"><i class="fas fa-file"></i></span>';
+		echo $vpn_files_out;
+		echo ' </a>';
+	}
+}
+ 
+ ?>

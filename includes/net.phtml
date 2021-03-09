@@ -1,0 +1,57 @@
+<div class="table-container">
+<h1 align="center" class="title"> Network Topology: </h1>
+<p align="center">
+<?php getIP(); ?>
+</p>
+<hr>
+<table align="center" class="table">
+  <thead>
+    <tr>
+      <th><abbr title="Position">Pos</abbr></th>
+      <th>Name</th>
+      <th><abbr title="ip">IP Address:</abbr></th>
+      <th><abbr title="ports">Ports Open:</abbr></th>
+
+      <th>Comment/Description</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th><abbr title="Position">Pos</abbr></th>
+      <th>Name</th>
+      <th><abbr title="ip">IP Address:</abbr></th>
+      <th><abbr title="ports">Ports Open:</abbr></th>
+      <th>Comment/Description</th>
+    </tr>
+  </tfoot>
+  <tbody>
+  <?php getNetwork(); ?>
+  </tbody>
+</table>
+</div>
+
+<?php
+function getIP() {
+	$realIP = file_get_contents("http://ipecho.net/plain");
+
+	echo 'Current Public IP: '.$realIP.'<br>';
+	echo 'Your Current Private IP: '.$_SERVER['REMOTE_ADDR'].'<br>';  
+	//echo 'Outside Domain: -';
+}
+
+function getNetwork() {
+    $connection = new SQLite3('includes/db.db');
+    if($connection){
+		$results = $connection->query('SELECT * FROM network');
+		while($row=$results->fetchArray(SQLITE3_ASSOC)){
+			echo '<tr>';
+			echo '<th>' . $row['pos'] . '</th>';
+			echo '<th>' . $row['name'] . '</th>';
+			echo '<td>' . $row['ipaddr'] . '</td>';
+			echo '<td>' . $row['ports'] . '</td>';
+			echo '<td>' . $row['desc'] . '</td>';
+			echo '</tr>';
+		}
+	}
+}
+?>
